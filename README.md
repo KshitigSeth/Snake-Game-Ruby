@@ -9,4 +9,4 @@ The classic snake game developed using the ruby programming language. Based on [
 ruby start_game.rb
 ```
 
-To quit the game press `q` or press `ctrl+c` to terminate the program
+Press `q` to quit the game, or press `ctrl+c` to terminate the program
