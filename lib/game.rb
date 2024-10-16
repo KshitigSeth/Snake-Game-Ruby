@@ -85,9 +85,11 @@ class Game
     begin
       tick
     rescue AteItselfError
-      show_message("Game over: You ate yourself!")
+      show_message("Game Over")
+      puts("You Ate Yourself!")
     rescue HitWallError
-      show_message("Game over: You hit the wall!")
+      show_message("Game Over")
+      puts("You Hit The Wall!")
     end
   end
 
@@ -95,14 +97,14 @@ class Game
     in_game = true
     while in_game
       show
-      sleep(0.1)
+      sleep(0.3)
       if key = GetKey.getkey
         in_game = execute_action(key)
       end
       snake.step
       check_snake_position
     end
-    show_message("Game quit")
+    show_message("Game Quit")
   end
 
   def execute_action(key)
