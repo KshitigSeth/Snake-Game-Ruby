@@ -1,7 +1,7 @@
 # Load all Ruby files in the lib directory
 Dir[File.expand_path('lib/*.rb', File.dirname(__FILE__))].each do |file|
     require file
-  end
+end
     
 # require 'pry'
 
@@ -13,4 +13,3 @@ rescue StandardError => e
 ensure
     puts "Thanks for playing! Your final size was #{game.snake.size}\n\n"
 end
-  

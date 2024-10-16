@@ -6,7 +6,7 @@ class HitWallError < StandardError; end
 class Game
   attr_reader :gameboard, :snake, :food
 
-  def initialize(max_x = 11, max_y = 11)
+  def initialize(max_x = 12, max_y = 12)
     @gameboard = Board.new(max_x, max_y)
     @snake = Snake.new(gameboard.width, gameboard.length)
     @food = Food.new(gameboard.width, gameboard.length, @snake.parts)
@@ -15,7 +15,7 @@ class Game
   def print_board
     system('clear')
     puts "Your size is: #{snake.size} |  [Q]uit"
-    puts "---------------------------"
+    puts "--------------------------"
     gameboard.board.each do |line|
       puts line.join(' ')
     end
@@ -86,10 +86,10 @@ class Game
       tick
     rescue AteItselfError
       show_message("Game Over")
-      puts("You Ate Yourself!")
+      puts("\nYou Ate Yourself!")
     rescue HitWallError
       show_message("Game Over")
-      puts("You Hit The Wall!")
+      puts("\nYou Hit The Wall!")
     end
   end
 
@@ -97,7 +97,7 @@ class Game
     in_game = true
     while in_game
       show
-      sleep(0.3)
+      sleep(0.25)
       if key = GetKey.getkey
         in_game = execute_action(key)
       end
@@ -110,6 +110,7 @@ class Game
   def execute_action(key)
     return false if compare_key(key, 'q')
     snake.turn(key)
+    true
   end
 
   def compare_key(key, char)

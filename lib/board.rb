@@ -26,12 +26,12 @@ class Board
   
     def place_snake(snake_parts)
       snake_parts.each do |part|
-        board[part[0]][part[1]] = 'S'  # 'S' for Snake part
+        board[part[0]][part[1]] = "\e[32m■\e[0m"
       end
     end
   
     def place_food(food_coords)
-      board[food_coords[0]][food_coords[1]] = 'F'  # 'F' for Food
+      board[food_coords[0]][food_coords[1]] = "\e[31m♦\e[0m"
     end
   
     def clear_board
